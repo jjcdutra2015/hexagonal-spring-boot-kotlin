@@ -1,4 +1,4 @@
-package com.github.jjcdutra.avengers.avengers.web.request
+package com.github.jjcdutra.avengers.avengers.application.web.request
 
 import javax.validation.constraints.NotBlank
 import javax.validation.constraints.NotEmpty

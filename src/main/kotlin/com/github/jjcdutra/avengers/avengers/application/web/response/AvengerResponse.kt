@@ -1,4 +1,4 @@
-package com.github.jjcdutra.avengers.avengers.web.response
+package com.github.jjcdutra.avengers.avengers.application.web.response
 
 data class AvengerResponse(
     val nick: String,
