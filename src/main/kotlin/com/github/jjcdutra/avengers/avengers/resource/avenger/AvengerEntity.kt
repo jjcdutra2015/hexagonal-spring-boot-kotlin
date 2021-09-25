@@ -3,7 +3,7 @@ package com.github.jjcdutra.avengers.avengers.resource.avenger
 import com.github.jjcdutra.avengers.avengers.domain.avenger.Avenger
 import javax.persistence.*
 
-@Entity
+@Entity(name = "avenger")
 data class AvengerEntity(
 
     @Id

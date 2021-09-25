@@ -7,6 +7,7 @@ import org.springframework.beans.factory.annotation.Autowired
 import org.springframework.http.ResponseEntity
 import org.springframework.web.bind.annotation.*
 import java.net.URI
+import javax.validation.Valid
 
 private const val API_PATH = "/v1/api/avenger"
 
@@ -30,11 +31,11 @@ class AvengerResource(
         } ?: ResponseEntity.notFound().build<Void>()
 
     @PostMapping
-    fun create(@RequestBody request: AvengerRequest) =
+    fun create(@Valid @RequestBody request: AvengerRequest) =
         request.toAvenger().run {
             repository.create(this)
         }.let {
-            ResponseEntity.created(URI("$API_PATH/${it.id}"))
+            ResponseEntity.created(URI("$API_PATH/${it.id}")).body(AvengerResponse.from(it))
         }
 
     @PutMapping("{id}")
